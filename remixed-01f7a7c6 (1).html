@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvdia ESG & Sustainability Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 50%, rgba(51, 65, 85, 0.7) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="leaves" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M20,20 Q30,10 40,20 Q50,30 40,40 Q30,50 20,40 Q10,30 20,20 Z" fill="%2310b981" opacity="0.1"/><path d="M70,70 Q80,60 90,70 Q100,80 90,90 Q80,100 70,90 Q60,80 70,70 Z" fill="%2322c55e" opacity="0.08"/><circle cx="15" cy="85" r="3" fill="%2306b6d4" opacity="0.1"/><circle cx="85" cy="15" r="3" fill="%2306b6d4" opacity="0.1"/></pattern><radialGradient id="earth" cx="20%" cy="30%"><stop offset="0%" stop-color="%2310b981" stop-opacity="0.2"/><stop offset="100%" stop-color="%23064e3b" stop-opacity="0.05"/></radialGradient></defs><rect width="1200" height="800" fill="%230f172a"/><rect width="1200" height="800" fill="url(%23leaves)"/><circle cx="200" cy="150" r="60" fill="url(%23earth)"/><circle cx="900" cy="200" r="80" fill="url(%23earth)"/><path d="M0,600 Q300,500 600,600 T1200,550 L1200,800 L0,800 Z" fill="%23065f46" opacity="0.15"/><g opacity="0.3"><path d="M100,400 Q200,350 300,400 Q400,450 500,400" stroke="%2310b981" stroke-width="1" fill="none"/><path d="M600,300 Q700,250 800,300 Q900,350 1000,300" stroke="%2322c55e" stroke-width="1" fill="none"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #4ade80, #22d3ee, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #10b981, #06b6d4);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(45deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="sustainability" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse"><rect width="120" height="120" fill="%23f8fafc"/><g transform="translate(60,60)"><path d="M-20,-20 Q0,-30 20,-20 Q30,0 20,20 Q0,30 -20,20 Q-30,0 -20,-20 Z" fill="%2310b981" opacity="0.08"/><circle cx="0" cy="0" r="15" fill="none" stroke="%2322c55e" stroke-width="1" opacity="0.1"/><path d="M-10,-10 L10,10 M-10,10 L10,-10" stroke="%2306b6d4" stroke-width="0.5" opacity="0.2"/></g><g transform="translate(20,20)"><circle cx="0" cy="0" r="8" fill="%2310b981" opacity="0.05"/><path d="M-4,-4 L4,4 M-4,4 L4,-4" stroke="%2322c55e" stroke-width="0.5" opacity="0.1"/></g><g transform="translate(100,100)"><circle cx="0" cy="0" r="6" fill="%2306b6d4" opacity="0.05"/></g></pattern></defs><rect width="1200" height="600" fill="url(%23sustainability)"/><g opacity="0.1"><path d="M0,100 Q200,50 400,100 Q600,150 800,100 Q1000,50 1200,100" stroke="%2310b981" stroke-width="2" fill="none"/><circle cx="200" cy="75" r="8" fill="%2310b981"/><circle cx="600" cy="125" r="8" fill="%2322c55e"/><circle cx="1000" cy="75" r="8" fill="%2306b6d4"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: #64748b;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%2310b981" stop-opacity="0.1"/><stop offset="50%" stop-color="%2306b6d4" stop-opacity="0.2"/><stop offset="100%" stop-color="%23a78bfa" stop-opacity="0.1"/></linearGradient></defs><rect width="1200" height="800" fill="%231e293b"/><path d="M0,200 C300,100 600,300 900,200 C1050,150 1200,250 1200,200 L1200,0 L0,0 Z" fill="url(%23flow)"/><path d="M0,600 C300,500 600,700 900,600 C1050,550 1200,650 1200,600 L1200,800 L0,800 Z" fill="url(%23flow)"/><g opacity="0.3"><circle cx="200" cy="300" r="3" fill="%2310b981"><animate attributeName="r" values="3;8;3" dur="3s" repeatCount="indefinite"/></circle><circle cx="600" cy="400" r="3" fill="%2306b6d4"><animate attributeName="r" values="3;8;3" dur="3s" begin="1s" repeatCount="indefinite"/></circle><circle cx="1000" cy="350" r="3" fill="%23a78bfa"><animate attributeName="r" values="3;8;3" dur="3s" begin="2s" repeatCount="indefinite"/></circle></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .process h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            background: linear-gradient(45deg, #10b981, #06b6d4);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background-color: #f8fafc;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9)),
+                              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="forest" x="0" y="0" width="150" height="150" patternUnits="userSpaceOnUse"><rect width="150" height="150" fill="%23f8fafc"/><g transform="translate(75,130)"><path d="M-30,0 Q-25,-40 -15,-35 Q0,-50 15,-35 Q25,-40 30,0 Z" fill="%2322c55e" opacity="0.12"/><rect x="-3" y="0" width="6" height="15" fill="%23a3a3a3" opacity="0.1"/></g><g transform="translate(25,120)"><path d="M-15,0 Q-12,-25 -8,-22 Q0,-30 8,-22 Q12,-25 15,0 Z" fill="%2310b981" opacity="0.1"/><rect x="-2" y="0" width="4" height="10" fill="%23a3a3a3" opacity="0.08"/></g><g transform="translate(125,125)"><path d="M-12,0 Q-10,-20 -6,-18 Q0,-25 6,-18 Q10,-20 12,0 Z" fill="%2334d399" opacity="0.1"/><rect x="-1.5" y="0" width="3" height="8" fill="%23a3a3a3" opacity="0.08"/></g><circle cx="50" cy="50" r="4" fill="%2310b981" opacity="0.08"/><circle cx="100" cy="80" r="3" fill="%2322c55e" opacity="0.08"/></pattern></defs><rect width="1200" height="600" fill="url(%23forest)"/><ellipse cx="300" cy="100" rx="150" ry="50" fill="%2310b981" opacity="0.05"/><ellipse cx="900" cy="500" rx="200" ry="60" fill="%2322c55e" opacity="0.05"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .team h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .team-member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(45deg, #10b981, #06b6d4);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white" opacity="0.8"/><ellipse cx="50" cy="75" rx="25" ry="20" fill="white" opacity="0.8"/></svg>');
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Partner Section */
+        .partner {
+            padding: 80px 0;
+            background: linear-gradient(45deg, rgba(241, 245, 249, 0.9), rgba(226, 232, 240, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="renewable" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><rect width="200" height="200" fill="%23f1f5f9"/><g transform="translate(100,100)"><circle cx="0" cy="0" r="40" fill="none" stroke="%2310b981" stroke-width="1" opacity="0.1"/><path d="M0,-35 L8,-20 L-8,-20 Z M25,-25 L33,-10 L17,-10 Z M25,25 L33,40 L17,40 Z M-25,25 L-17,40 L-33,40 Z M-25,-25 L-17,-10 L-33,-10 Z M0,35 L8,50 L-8,50 Z" fill="%2310b981" opacity="0.12"/><circle cx="0" cy="0" r="8" fill="%2306b6d4" opacity="0.15"/></g><g transform="translate(50,50)"><rect x="-15" y="-25" width="30" height="20" fill="%2306b6d4" opacity="0.08"/><path d="M-12,-25 L12,-25 L10,-5 L-10,-5 Z" fill="%23075985" opacity="0.1"/></g><g transform="translate(150,150)"><rect x="-12" y="-20" width="24" height="16" fill="%2310b981" opacity="0.08"/><path d="M-10,-20 L10,-20 L8,-4 L-8,-4 Z" fill="%23065f46" opacity="0.1"/></g></pattern></defs><rect width="1200" height="600" fill="url(%23renewable)"/><path d="M0,200 Q400,150 800,200 Q1000,220 1200,180 L1200,0 L0,0 Z" fill="%23ecfdf5" opacity="0.4"/><path d="M0,500 Q400,450 800,500 Q1000,520 1200,480 L1200,600 L0,600 Z" fill="%23f0f9ff" opacity="0.4"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .partner h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .partner-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><radialGradient id="contact-grad" cx="50%" cy="50%"><stop offset="0%" stop-color="%2310b981" stop-opacity="0.2"/><stop offset="100%" stop-color="%23064e3b" stop-opacity="0.05"/></radialGradient></defs><rect width="1200" height="600" fill="%230f172a"/><circle cx="600" cy="300" r="200" fill="url(%23contact-grad)"/><g opacity="0.1"><path d="M200,300 L400,200 L600,350 L800,250 L1000,300" stroke="%2310b981" stroke-width="2" fill="none"/><circle cx="200" cy="300" r="5" fill="%2310b981"/><circle cx="400" cy="200" r="5" fill="%2306b6d4"/><circle cx="600" cy="350" r="5" fill="%23a78bfa"/><circle cx="800" cy="250" r="5" fill="%2310b981"/><circle cx="1000" cy="300" r="5" fill="%2306b6d4"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            display: inline-block;
+            margin: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 20%; right: 20%; animation-delay: 1s; }
+        .floating-element:nth-child(3) { top: 60%; left: 30%; animation-delay: 2s; }
+        .floating-element:nth-child(4) { top: 80%; right: 10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">ARVDIA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#partner">Partner</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>ESG & Sustainability Consultancy</h1>
+            <p>Transform your business with tailored ESG solutions that reduce carbon footprint, optimize resources, and embrace circular economy practices for a sustainable future.</p>
+            <a href="#services" class="cta-button">Discover Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our ESG Enablement Programs</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Asset Level ESG Program</h3>
+                    <p>Comprehensive ESG assessment and reporting for individual assets, contributing to Green Building Certification.</p>
+                    <ul>
+                        <li>ESG Preliminary Assessment</li>
+                        <li>ESG Adoption Assessment</li>
+                        <li>ESG Asset Reporting</li>
+                        <li>Green Building Certification Support</li>
+                        <li>Performance Tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Supplier Level ESG Program</h3>
+                    <p>End-to-end ESG enablement for suppliers aligned with Bursa Malaysia/SEDG frameworks.</p>
+                    <ul>
+                        <li>ESG Readiness Assessment</li>
+                        <li>ESG Adoption Evaluation</li>
+                        <li>Bursa/SEDG Compliant Reporting</li>
+                        <li>HRDF Claimable Training</li>
+                        <li>Supply Chain Risk Reduction</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Corporate ESG Reporting</h3>
+                    <p>Complete corporate-level ESG strategy development and reporting solutions.</p>
+                    <ul>
+                        <li>Materiality Assessment</li>
+                        <li>Sustainability Policy Development</li>
+                        <li>ESG Framework Design</li>
+                        <li>Full Bursa ESG Indicators</li>
+                        <li>Decarbonization Roadmap</li>
+                        <li>IFRS S1 & S2 Compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>GHG Emissions Consultancy</h3>
+                    <p>Specialized greenhouse gas accounting and inventory management services.</p>
+                    <ul>
+                        <li>GHG Accounting & Inventory</li>
+                        <li>Emissions Scope 1, 2 & 3 Analysis</li>
+                        <li>Carbon Footprint Assessment</li>
+                        <li>Reduction Strategy Development</li>
+                        <li>Compliance Monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>ISO 20121 Certification</h3>
+                    <p>Sustainable Event Management Certification for environmentally responsible events.</p>
+                    <ul>
+                        <li>Event Sustainability Assessment</li>
+                        <li>ISO 20121 Implementation</li>
+                        <li>Certification Support</li>
+                        <li>Event Carbon Footprint Analysis</li>
+                        <li>Sustainable Event Planning</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>ESG Training & Education</h3>
+                    <p>Comprehensive ESG and sustainability training programs for teams and leadership.</p>
+                    <ul>
+                        <li>HRDF Claimable Training</li>
+                        <li>ESG Principles Education</li>
+                        <li>Reporting Best Practices</li>
+                        <li>Leadership ESG Workshops</li>
+                        <li>Supplier Training Programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2>Our Business Methodology</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Stakeholder Engagement</h3>
+                    <p>We begin by engaging with key stakeholders to understand your specific ESG needs and challenges, setting the foundation for a tailored approach.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Preliminary Assessment</h3>
+                    <p>Comprehensive evaluation of current ESG status through questionnaires and analysis, identifying gaps and opportunities for improvement.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Deep-Dive Analysis</h3>
+                    <p>Detailed assessment of ESG adoption and readiness, ensuring data quality and audit-readiness for compliance requirements.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>ESG Reporting & Implementation</h3>
+                    <p>Final ESG reporting aligned with frameworks like Bursa Malaysia/SEDG, with actionable roadmaps and continuous performance tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Our Expert Consultants</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member img">SL</div>
+                    <h3>Steven Lee</h3>
+                    <h4>President, ESG Malaysia</h4>
+                    <p>With over 15 years of experience in Green Technology and Sustainability, Steven leads ESG advocacy and implementation strategies across Malaysia. His expertise spans project management, technical leadership, and delivering successful ESG transformations within specified timeframes.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member img">NA</div>
+                    <h3>Nazirah Mohammad Ali</h3>
+                    <h4>Multi-Disciplinary Practitioner</h4>
+                    <p>Nazirah specializes in developing business strategies for companies adopting new technologies including green tech, IoT, and drone technologies. Her background in oil and gas contracting and procurement brings valuable industry insights to ESG and SDG initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section id="partner" class="partner">
+        <div class="container">
+            <h2>Strategic Partnership</h2>
+            <div class="partner-card">
+                <h3>IETCO Energy - Energy Efficiency Solutions</h3>
+                <p>Our partnership with IETCO Energy enhances our ESG services with cutting-edge energy efficiency solutions. IETCO specializes in HVAC systems, building management, and thermal control solutions that help reduce operational costs and boost energy efficiency.</p>
+                
+                <h4>Key Offerings:</h4>
+                <ul>
+                    <li>Realtime Monitoring Systems (ENISCOPE)</li>
+                    <li>Building Management Systems (SAUTER)</li>
+                    <li>Energy Audits and ESCO Services</li>
+                    <li>Modular Hybrid Chillers</li>
+                    <li>Proven track record with major clients including Tesco, Carrefour, and 1-Utama</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Start Your Sustainability Journey</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Engage with us as your trusted partner to develop and achieve robust sustainability goals.</p>
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Phone:</strong> +012-342-7018</p>
+                <p><strong>Email:</strong> nazirah@arvdia.com</p>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <a href="mailto:nazirah@arvdia.com" class="cta-button">Get In Touch Today</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 58, 95, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .team-member, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
